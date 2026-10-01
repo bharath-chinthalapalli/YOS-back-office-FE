@@ -1,0 +1,39 @@
+<div class="flex justify-between bg-gray-200 px-6 p-2">
+    <div class="text-gray-800 font-medium text-sm">
+        Prefix Info
+    </div>
+    <mat-icon (click)="closeDialoge()" class="cursor-pointer">
+        close
+    </mat-icon>
+</div>
+<ng-container>
+    <mat-dialog-content>
+        <section class="container my-0 w-[450px] flex flex-col text-center gap-1">
+            <!-- <div class="text-gray-800 font-medium text-sm !text-left">
+                Prefix Information
+            </div> -->
+            <div class=" overflow-x-auto  mt-0 ">
+                
+                <table mat-table [dataSource]="dataSource" class="table-auto">
+                    <!-- pdcDate Column -->
+                    <ng-container matColumnDef="code">
+                        <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit uppercase"> Code </th>
+                        <td mat-cell *matCellDef="let element" class="!bg-white text-xs text-[#8757E3] font-medium">
+                            {{element.code}} </td>
+                    </ng-container>
+                    <!-- yesID Column -->
+                    <ng-container matColumnDef="description">
+                        <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit uppercase"> Description </th>
+                        <td mat-cell *matCellDef="let element" class="!bg-white text-xs"> {{element.description}} </td>
+                    </ng-container>
+    
+                  
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+         
+            </div>
+
+        </section>
+    </mat-dialog-content>
+</ng-container>

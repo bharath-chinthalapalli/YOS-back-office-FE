@@ -1,0 +1,37 @@
+.mat-drawer {
+    border-radius: 0% !important;
+}
+.bg-toolbar{
+    background-color: white;
+    max-height: 50px;
+}
+.active .text-primary {
+    color: #ffffff !important;
+}
+
+// mat-list-item.active {
+//     background: #8757E3 !important;
+//     border-radius: 4px !important;
+//     color: #ffffff !important; 
+// }
+
+// mat-list-item.active .text-xs {
+//     color: #ffffff !important; 
+// }
+mat-list-item.custom-list-item {
+    padding: 8px 16px !important;
+    border-radius: 4px; 
+    margin: 4px 0;
+}
+
+mat-list-item.custom-list-item.active {
+    background: #8757E3 !important;
+    color: #ffffff !important; 
+    padding: 10px 16px !important; 
+    font-weight: bold; 
+    
+}
+
+mat-list-item.custom-list-item.active .activeText {
+    color: #ffffff !important;
+}

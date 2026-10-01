@@ -1,0 +1,125 @@
+<!-- <mat-sidenav-container class="example-container h-100">
+    <mat-sidenav class="!w-fit rounded-r-lg !bg-[#f2f2f2]" #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'"
+        [opened]="mobileQuery.matches" [fixedInViewport]="true">
+        <mat-nav-list id="sidenavList" class="bg-[#0F172A] h-full ">
+            <div class="px-3">
+                <div class="flex justify-center my-2">
+                    <img src="yos_back/yes_logo.svg" alt="yes_logo" class="bg-cover bg-center">
+                </div>
+                <div class="text-bold text-md text-white text-center mb-4">YOS Back Office</div>
+                <hr class="mb-4">
+                @for (snl of sideNavLinks; track $index) {
+                @if (snl.active) {
+                <mat-list-item [ngClass]="{'active': isActiveLink(snl.link)}" [routerLink]="snl.link"
+                    class="custom-list-item">
+                    <div class="flex items-center">
+                        <mat-icon class="bg-cover text-sm text-[#64748B] activeText">{{snl.icon}}</mat-icon>
+                        <div class="text-xs font-normal text-[#64748B] text-left activeText">
+                            {{snl.name}}
+                        </div>
+                    </div>
+                </mat-list-item>
+                }
+                }
+            </div>
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar class="flex justify-between items-center bg-toolbar  fixed z-50 ">
+            <button mat-icon-button class="text-white bg-white" (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <button mat-icon-button class="text-light" type="button" [matMenuTriggerFor]="menu">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>person</mat-icon>
+                    <span>John Doe</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>logout</mat-icon>
+                    <span>Sign Out</span>
+                </button>
+            </mat-menu>
+        </mat-toolbar>
+        <div class="">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+<header class="fixed top-0 z-20  w-full">
+    <mat-toolbar class="flex flex-row justify-between !bg-blue-900 !h-12 items-center shadow-sm">
+        <!-- Logo -->
+        <div class="flex items-center gap-2 xl:gap-4 cursor-pointer outline-none" routerLink="/">
+            <img src="favicon.ico" alt="" height="30px" width="30px">
+            <span class="text-lg text-white">YOS Back Office</span>
+            <!-- <span class="text-lg hidden md:inline">YOS Back Office</span> -->
+            <!-- <span class="text-sm md:hidden">KB</span> -->
+        </div>
+        <!-- Search & profile -->
+        <div class="flex flex-row items-center ps-3 text-white gap-2 xl:gap-5">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon class="text-white">expand_circle_down</mat-icon>
+            </button>
+
+            <button mat-icon-button class="text-light" type="button" [matMenuTriggerFor]="profileMenu">
+                <mat-icon class="text-white">account_circle</mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu">
+                <!-- @for (sides of sideNavLinks; track $index) {
+                <button mat-menu-item (click)="navToLinks(sides.link)">
+                    <span class="!text-{{sides.text_color}}">
+                        {{sides.name}}
+                    </span>
+                    <mat-icon class="!text-{{sides.text_color}} ">{{sides.icon}}
+                    </mat-icon>
+                </button>
+                } -->
+                <button mat-menu-item routerLink="/cas">
+                    <span>Customer Account Search</span>
+                    <mat-icon class="!text-green-600">person_search</mat-icon>
+                </button>
+                <button mat-menu-item routerLink="/status-bulk-update">
+                    <span>Status Bulk Update</span>
+                    <mat-icon class="!text-blue-500">cloud_upload</mat-icon>
+                </button>
+                <button mat-menu-item routerLink="/status-bulk-update-approver-list">
+                    <span>Status Bulk Update Approver List</span>
+                    <mat-icon class="!text-orange-500">checklist_rtl</mat-icon>
+                </button>
+                <button mat-menu-item routerLink="/manual-missing-order-sync">
+                    <span>Manual Missing Order Sync</span>
+                    <mat-icon class="!text-blue-500">sync_arrow_down</mat-icon>
+                </button>
+                <button mat-menu-item routerLink="/status-bulk-device-warranty">
+                    <span>Bulk Device Warranty Activation</span>
+                    <mat-icon class="!text-orange-500">recommend</mat-icon>
+                </button>
+               
+                <button mat-menu-item type="" (click)="logout()">
+                    <mat-icon class="menu-item-icon !text-red-500">logout</mat-icon>
+                    Logout
+                </button>
+            </mat-menu>
+            <mat-menu #profileMenu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>person</mat-icon>
+                    <span>John Doe</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>logout</mat-icon>
+                    <span>Sign Out</span>
+                </button>
+            </mat-menu>
+        </div>
+    </mat-toolbar>
+</header>
+
+<div class="mt-0">
+    <router-outlet></router-outlet>
+</div>

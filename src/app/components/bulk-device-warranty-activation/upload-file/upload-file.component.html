@@ -1,0 +1,56 @@
+<div class="bg-[#f2f2f2] h-screen pt-16 pb-6  flex flex-col gap-2  px-6 ">
+    <div class="md:flex block  items-end justify-between">
+        <div class="flex items-center gap-2">
+            <mat-icon class="cursor-pointer" [routerLink]="['/status-bulk-device-warranty']">
+                keyboard_backspace
+            </mat-icon>
+            <div class="text-gray-900 font-medium text-md ">Upload File</div>
+        </div>
+        <div class="flex items-center gap-2 md:mt-0 mt-2 ">
+            <p class="text-gray-900 font-normal text-xs cursor-pointer">
+                Home /
+            </p>
+            <p class="text-gray-900 font-normal text-xs cursor-pointer">
+                Bulk Device Warranty Activation /
+            </p>
+            <p class="text-gray-500 font-normal text-xs">
+                Upload File
+            </p>
+        </div>
+    </div>
+    <div class=" bg-white rounded-lg px-4 pt-4 pb-10 shadow-lg mt-2">
+        <div class="md:flex block  items-center justify-between">
+            <div class="text-gray-900 font-medium text-xs">Upload File</div>
+            <button type="button"
+                class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-gray-800 rounded-lg text-xs m-1 cursor-pointer  active:shadow-none  bg-gray-200 border-gray-300 border-[1px]">
+                <span
+                    class="absolute w-0 h-0 transition-all duration-300 ease-out bg-gray-400 rounded-lg group-hover:w-full group-hover:h-10 opacity-10"></span>
+                <mat-icon class="text-sm pr-2 pt-[1px] text-gray-800">
+                    download
+                </mat-icon>
+                <div class="relative">Download Template</div>
+            </button>
+        </div>
+        <div
+            class="flex flex-col items-center justify-center text-center m-auto mt-4 bg-gray-100 px-14 py-10 rounded-md border-dashed border-[1.5px] border-gray-400 w-fit">
+            <div class="block items-center justify-center">
+                <mat-icon class="text-gray-600">
+                    cloud_upload
+                </mat-icon>
+                <div>
+                    <label for="file-upload"
+                        class="mt-4 cursor-pointer text-xs text-gray-700 font-medium bg-white border-[1px] border-gray-400 px-3 py-1 rounded-md">
+                        Choose File
+                    </label>
+                    <!-- <input id="file-upload" type="file" class="hidden" (change)="onFileSelected($event)">
+                    <p *ngIf="fileName as name" class="mt-4 text-sm text-gray-600">{{ name }}</p> -->
+                    <div>
+                        <input id="file-upload" type="file" class="hidden" (change)="onFileSelected($event)">
+                        <p class="mt-4 text-sm text-gray-600">{{ fileName() ? fileName() : 'Please Choose File' }}</p>
+                    </div>
+                    <!-- <p *ngIf="fileName() as name" class="mt-4 text-sm text-gray-600">{{  name ? name : 'N/A'}}</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,194 @@
+<div class="bg-[#f2f2f2] h-full pt-16 pb-6  flex flex-col gap-2 px-6 ">
+    <div class="md:flex block  items-end justify-between">
+        <div class="text-gray-900 font-medium text-md">Bulk Device Warranty Activation</div>
+        <div class="flex items-center gap-2 md:mt-0 mt-2 ">
+            <p class="text-gray-900 font-normal text-xs cursor-pointer">
+                Home /
+            </p>
+            <p class="text-gray-500 font-normal text-xs">
+                Bulk Device Warranty Activation
+            </p>
+        </div>
+    </div>
+
+    <div class=" bg-white rounded-t-md px-4 py-4 shadow-xs">
+        <div class="flex items-center gap-2 justify-between">
+            <!-- <div class="flex items-center gap-2">
+                <div><img src="yos_back/filter_icon.svg" alt=""></div>
+                <div class="text-xs text-gray-900 font-medium">Filters</div>
+            </div> -->
+
+        </div>
+        <form [formGroup]="filterForm" (ngSubmit)="filterSearch()">
+            <div class="grid xl:grid-cols-4 md:grid-cols-2 gap-4">
+                <!-- Customer/Child NRIC -->
+                <mat-form-field class=" text-sm" appearance="outline" subscriptSizing="dynamic">
+                    <mat-label class="text-sm ">Customer/Child NRIC</mat-label>
+                    <input type="text" matInput class="text-sm " formControlName="customer_child_NRIC">
+                </mat-form-field>
+                <!-- Order Number -->
+                <mat-form-field class="!bg-white w-full !text-xs" appearance="outline" subscriptSizing="dynamic">
+                    <mat-label class="!text-sm">Order Number</mat-label>
+                    <input type="text" matInput class="text-sm " formControlName="order_number">
+                </mat-form-field>
+                <!-- Start Date -->
+                <mat-form-field class="text-sm"  appearance="outline" subscriptSizing="dynamic">
+                    <mat-label class="!text-sm">Start Date</mat-label>
+                    <input matInput [matDatepicker]="start_picker" formControlName="start_date">
+                    <mat-datepicker-toggle matIconSuffix [for]="start_picker">
+                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #start_picker></mat-datepicker>
+                </mat-form-field>
+
+                 <!-- End Date -->
+                <mat-form-field class="text-sm"  appearance="outline" subscriptSizing="dynamic">
+                    <mat-label class="!text-sm">End Date</mat-label>
+                    <input matInput [matDatepicker]="end_picker" formControlName="end_date">
+                    <mat-datepicker-toggle matIconSuffix [for]="end_picker">
+                        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #end_picker></mat-datepicker>
+                </mat-form-field> 
+
+                <div class="flex items-center justify-start">
+                    <button type="submit"
+                        class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-white rounded-lg text-xs m-1 cursor-pointer  active:shadow-none  bg-gradient-to-tr from-[#7231F1] to-[#8757E3] ">
+                        <span
+                            class="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-lg group-hover:w-full group-hover:h-10  opacity-10"></span>
+                        <mat-icon class="text-lg pr-2">
+                            search
+                        </mat-icon>
+                        <div class="relative">Search</div>
+                    </button>
+                    <button type="button" (click)="resetForm()"
+                        class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-gray-800 rounded-lg text-xs m-1 cursor-pointer  active:shadow-none  bg-gray-200 border-gray-300 border-[1px]">
+                        <span
+                            class="absolute w-0 h-0 transition-all duration-300 ease-out bg-gray-400 rounded-lg group-hover:w-full group-hover:h-10 opacity-10"></span>
+                        <mat-icon class="text-sm pr-2 pt-[1px] text-gray-800">
+                            not_interested
+                        </mat-icon>
+                        <div class="relative">Cancel</div>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="bg-white rounded-b-md px-4 py-2 shadow-lg ">
+        <div class="md:flex block items-center justify-end mt-2">
+            <!-- <div class="relative w-full max-w-xs">
+                <mat-icon class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400">
+                    search
+                </mat-icon>
+                <input type="text" placeholder="Search"
+                    class="pl-8 pr-4 py-2 w-full text-sm text-gray-800 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" />
+            </div> -->
+            <div class="flex items-center gap-2 md:mt-0 mt-2">
+                <button type="button" (click)="navToUploadFile()"
+                    class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-gray-800 rounded-lg text-xs m-1 cursor-pointer  active:shadow-none  bg-gray-200 border-gray-300 border-[1px]">
+                    <span
+                        class="absolute w-0 h-0 transition-all duration-300 ease-out bg-gray-400 rounded-lg group-hover:w-full group-hover:h-10 opacity-10"></span>
+                    <mat-icon class="text-sm pr-2 pt-[1px] text-gray-800">
+                        upload
+                    </mat-icon>
+                    <div class="relative">Upload File</div>
+                </button>
+                <!-- <button type="button"
+                    class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-gray-800 rounded-lg text-xs m-1 cursor-pointer  active:shadow-none  bg-gray-200 border-gray-300 border-[1px]">
+                    <span
+                        class="absolute w-0 h-0 transition-all duration-300 ease-out bg-gray-400 rounded-lg group-hover:w-full group-hover:h-10 opacity-10"></span>
+                    <mat-icon class="text-sm pr-2 pt-[1px] text-gray-800">
+                        file_upload
+                    </mat-icon>
+                    <div class="relative">Export</div>
+                </button> -->
+            </div>
+
+        </div>
+        <div class=" overflow-x-auto  mt-4 ">
+            <table mat-table [dataSource]="dataSource" class="table-auto">
+                <!-- SNo Column -->
+                <ng-container matColumnDef="SNo">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit"> S.No. </th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs  font-medium">
+                        {{element.SNo}} </td>
+                </ng-container>
+                <!-- ItemDesc Column -->
+                <ng-container matColumnDef="ItemDesc">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit">Item Desc</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs overflow-hidden text-ellipsis whitespace-nowrap"> {{element.ItemDesc}} </td>
+                </ng-container>
+
+                <!-- ProdID Date Column -->
+                <ng-container matColumnDef="ProdID">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit">Prod ID</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs overflow-hidden text-ellipsis whitespace-nowrap"> {{element.ProdID}} </td>
+                </ng-container>
+                <!-- ProductGroup Column -->
+                <ng-container matColumnDef="ProductGroup">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit"> Product Group</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs overflow-hidden text-ellipsis whitespace-nowrap"> {{element.ProductGroup}} </td>
+                </ng-container>
+                <!-- WarrantyStartDate Column -->
+                <ng-container matColumnDef="WarrantyStartDate">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit">Warranty Start Date</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs overflow-hidden text-ellipsis whitespace-nowrap"> {{element.WarrantyStartDate}}
+                    </td>
+                </ng-container>
+                <!-- TransferStockLocation Column -->
+                <ng-container matColumnDef="TransferStockLocation">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit"> Transfer Stock Location
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs overflow-hidden text-ellipsis whitespace-nowrap"> {{element.TransferStockLocation}}
+                    </td>
+                </ng-container>
+                <!-- WarrantyPeriodMonth Column -->
+                <ng-container matColumnDef="WarrantyPeriodMonth">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit">Warranty Period (Month)
+                    </th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs overflow-hidden text-ellipsis whitespace-nowrap"> {{element.WarrantyPeriodMonth}}
+                    </td>
+                </ng-container>
+                <!-- UploadDate Column -->
+                <ng-container matColumnDef="UploadDate">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit">Upload Date</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs overflow-hidden text-ellipsis whitespace-nowrap"> {{element.UploadDate}} </td>
+                </ng-container>
+
+                <!-- FileName Column -->
+                <ng-container matColumnDef="FileName">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit">File Name</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs overflow-hidden text-ellipsis whitespace-nowrap"> {{element.FileName}} </td>
+                </ng-container>
+                <!-- Description Column -->
+                <ng-container matColumnDef="Description">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit">Description</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs overflow-hidden text-ellipsis whitespace-nowrap"> {{element.Description}} </td>
+                </ng-container>
+                <!-- Status Column -->
+                <ng-container matColumnDef="Status">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit">Status</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white overflow-hidden text-ellipsis whitespace-nowrap">
+                        <div [ngClass]="{
+                          'bg-[#BBF7D0] text-green-800 ': element.Status === 'valid',
+                          'bg-red-100 text-red-800 ': element.Status === 'in-valid',
+                          'bg-[#FFDFC0] text-yellow-800 ': element.Status === 'Processing',
+                          'bg-blue-100 text-blue-800 ': element.Status === 'In-Progress',
+                          'bg-gray-100 text-gray-800': element.Status === 'Expired'
+                        }"
+                            class="px-3 py-1 w-fit !text-[10px] font-medium uppercase flex items-center  rounded-full  justify-center">
+                            {{element.Status}}
+                        </div>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+        <mat-paginator [length]="dataSource.data.length" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+            aria-label="Select page of periodic elements" class="!bg-white mt-2 w-full">
+        </mat-paginator>
+    </div>
+</div>

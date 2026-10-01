@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'tailwindcss/base';
+@use 'tailwindcss/components';
+@use 'tailwindcss/utilities';
+@use "@angular/material" as mat;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-mdc-form-field {
+  @include mat.button-density(-2.5);
+  @include mat.input-density(-2.5);
+  @include mat.form-field-density(-3);
+  @include mat.icon-density(-2.5);
+  @include mat.select-density(-2.5);
+}
+// Configure global density settings for Angular Material components
+$custom-density-config: (
+  form-field: -3, // Reduce form-field height
+  input: -6,      // Reduce input height
+  select: -3,     // Reduce select height
+  button: -3,     // Reduce button height (if needed)
+  icon: -3        // Reduce icon size (if used in form-field)
+);
+// :root {
+//   @include mat.form-field-overrides((
+//     container-height:1
+//   ));
+// }
+
+// ::ng-deep .mat-mdc-form-field {
+//   height: 24px; /* Set your custom height */
+// }
+// .mat-mdc-form-field, 
+// .mat-mdc-form-field * {
+//   box-sizing: border-box;
+//   border-width: 0;
+//   border-style: none !important; 
+// }
+
+// .mat-mdc-form-field .mdc-notched-outline__leading,
+// .mat-mdc-form-field .mdc-notched-outline__notch {
+//   border: none !important;
+// }
+
+/* Retain the border for the input field */
+// .mat-mdc-form-field input.mat-mdc-input-element {
+//   border-width: 2px;
+//   border-style: solid;
+//   border-color: #6b7280;
+
+// }
+
+
+// .mat-mdc-form-field .mdc-notched-outline {
+//   border-width: 2px;
+//   border-style: solid;
+//   border-color: #6b7280 !important;
+//   border-radius: 4px;
+// }
+

@@ -1,0 +1,42 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .inputFiled {
+    @apply absolute text-xs text-gray-800 dark:text-gray-800 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1
+  }
+  
+  
+  option{
+    width: fit-content!important;
+  }
+  .topunit{
+    background-color: white;
+    // margin-top: 5%;
+    // padding: 0 0.75em 0 0.75em;
+    width: 100%;
+    align-items:center;
+    // border-radius: 20px;
+  }
+  
+  
+  
+  // mat-icon {
+  //   transition: transform 0.3s ease;
+  // }
+  
+  // .rotate-up {
+  //   transform: rotate(180deg);
+  // }
+  
+  // .rotate-down {
+  //   transform: rotate(0deg);
+  // }
+  
+  

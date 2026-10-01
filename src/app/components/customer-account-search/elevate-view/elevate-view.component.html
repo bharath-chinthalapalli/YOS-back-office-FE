@@ -1,0 +1,116 @@
+<div class="bg-[#f2f2f2] min-h-screen pt-16 pb-6  flex flex-col gap-2 xl:gap-3 px-6 ">
+    <div class="md:flex block  items-end justify-between">
+        <div class="flex items-center gap-2">
+            <mat-icon class="cursor-pointer" [routerLink]="['/csa']">
+                keyboard_backspace
+            </mat-icon>
+            <div class="text-gray-900 font-medium text-md ">Elevate View</div>
+        </div>
+        <div class="flex items-center gap-2 md:mt-0 mt-2 ">
+            <p class="text-gray-900 font-normal text-xs cursor-pointer">
+                Home /
+            </p>
+            <p class="text-gray-900 font-normal text-xs cursor-pointer">
+                Customer Account Search /
+            </p>
+            <p class="text-gray-500 font-normal text-xs">
+                Elevate View
+            </p>
+        </div>
+    </div>
+    <div class="mt-2 bg-white h-100 shadow-lg rounded-lg  pb-6">
+        <mat-tab-group animationDuration="0ms">
+            <mat-tab label="Elevate Customer Details">
+                <div class="p-4  flex flex-col gap-2">
+                    <div class="flex items-center justify-between">
+                        <div class="text-[#FF0084] font-medium text-lg">Elevate Customer Details</div>
+                    </div>
+                    <div class="grid lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-2 py-2">
+                        @for (item of customerDetailsSectionList; track $index) {
+                        <div class="flex flex-col gap-1 py-1">
+                            <div class="text-gray-600 text-xs font-normal ">{{item.labelName}}&nbsp;:</div>
+                            <div class="text-gray-900 text-sm font-medium ">{{item.details}}</div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Elevate Order Details">
+                <div class="p-4  flex flex-col gap-2">
+                    <div class="flex items-center justify-between">
+                        <div class="text-[#FF0084] font-medium text-lg">Elevate Order Details</div>
+                    </div>
+                    <div class="grid lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-2 py-2">
+                        @for (item of elevateOrderDetailsList(); track $index) {
+                        <div class="flex flex-col gap-1 py-1">
+                            <div class="text-gray-600 text-xs font-normal ">{{item.labelName}}&nbsp;:</div>
+                            <div class="text-gray-900 text-sm font-medium ">{{item.details}}</div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Elevate Contract Details">
+                <div class="p-4 flex flex-col gap-2">
+                    <div class="flex items-center justify-between">
+                        <div class="text-[#FF0084] font-medium text-lg">Elevate Contract Details</div>
+                    </div>
+                    <div class="grid lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-2 py-2">
+                        @for (item of elevateContractDetailsList(); track $index) {
+                        <div class="flex flex-col gap-1 py-1">
+                            <div class="text-gray-600 text-xs font-normal ">{{item.labelName}}&nbsp;:</div>
+                            <div class="text-gray-900 text-sm font-medium ">{{item.details}}</div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Elevate Product Details">
+                <div class="p-4  flex flex-col gap-2">
+                    <div class="flex items-center justify-between">
+                        <div class="text-[#FF0084] font-medium text-lg">Elevate Product Details</div>
+                    </div>
+                    <div class="grid lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-2 py-2">
+                        @for (item of elevateProductDetailsList(); track $index) {
+                        <div class="flex flex-col gap-1 py-1">
+                            <div class="text-gray-600 text-xs font-normal ">{{item.labelName}}&nbsp;:</div>
+                            <div class="text-gray-900 text-sm font-medium ">{{item.details}}</div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Elevate Plan Details">
+                <div class="p-4  flex flex-col gap-2">
+                    <div class="flex items-center justify-between">
+                        <div class="text-[#FF0084] font-medium text-lg">Elevate Plan Details</div>
+                    </div>
+                    <div class="grid lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-2 py-2">
+                        @for (item of elevatePlanDetailsList(); track $index) {
+                        <div class="flex flex-col gap-1 py-1">
+                            <div class="text-gray-600 text-xs font-normal ">{{item.labelName}}&nbsp;:</div>
+                            <div class="text-gray-900 text-sm font-medium ">{{item.details}}</div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Elevate Device Details">
+                <div class="p-4  flex flex-col gap-2 ">
+                    <div class="flex items-center justify-between">
+                        <div class="text-[#FF0084] font-medium text-lg">Elevate Device Details</div>
+                    </div>
+                    <div class="grid lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-2 py-2">
+                        @for (item of elevateDeviceDetailsList(); track $index) {
+                        <div class="flex flex-col gap-1 py-1">
+                            <div class="text-gray-600 text-xs font-normal ">{{item.labelName}}&nbsp;:</div>
+                            <div class="text-gray-900 text-sm font-medium ">{{item.details}}</div>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+
+    </div>
+</div>

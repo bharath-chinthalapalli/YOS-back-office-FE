@@ -1,0 +1,81 @@
+<div class="bg-white flex items-center h-screen justify-center overflow-hidden">
+    <div class="relative hidden lg:block ">
+        <img src="yos_back/login_bg.svg" alt="" class="bg-no-repeat  bg-cover ">
+    </div>
+    <div class=" absolute flex mx-0 md:mx-10 lg:right-28 justify-center z-10">
+        <form [formGroup]="loginForm" autocomplete="off" (ngSubmit)="login()">
+            <div
+                class="lg:w-[400px] md:w-[700px] sm:w-[640px] xs:w-[320px]  px-10 py-10 bg-gradient-to-b from-white to-white-400 backdrop-blur-xl bg-white/10 border-2 border-white shadow-2xl rounded-xl">
+                <!-- <div class="flex justify-center pb-7">
+                    <img src="logo.svg" alt="" class="bg-auto bg-center">
+                </div> -->
+                <!-- <div>
+                    <img src="yos_back/logo_hive.svg" alt="" class="bg-no-repeat  bg-cover ">
+                </div> -->
+                <div class="mb-4">
+                    <h1 class="text-4xl font-medium text-gray-800 uppercase text-center">
+                        Login
+                    </h1>
+                </div>
+                <div class="flex flex-col gap-4 relative">
+                    <div class="flex flex-col gap-2">
+                        <label for="" class="text-sm font-medium text-gray-800">
+                            User Name <span class="text-red-600">*</span>
+                        </label>
+                        <input type="text"
+                            class="w-full border-b-[1.5px] border-gray-800 p-2 text-sm placeholder:text-sm placeholder:font-normal placeholder:text-gray-400 focus:outline-none  focus:border-black focus:ring-0"
+                            formControlName="username" placeholder="Enter User Name">
+                        @if ( loginForm.get('username')?.invalid && loginForm.get('username')?.touched) {
+                        @if (loginForm.get('username')?.hasError('required')) {
+                        <div class="text-sm text-red-600">User Name is required</div>
+                        } @else if (loginForm.get('username')?.hasError('minlength')) {
+                        <div class="text-sm text-red-600">Invalid user name length</div>
+                        }
+                        }
+                        <span class="absolute right-2 top-7 text-gray-600">
+                            <mat-icon>
+                                person
+                            </mat-icon>
+                        </span>
+                    </div>
+                    <div class="flex flex-col gap-2 relative">
+                        <label for="" class="text-sm font-medium text-gray-800">
+                            Password <span class="text-red-600">*</span>
+                        </label>
+                        <input type="password"
+                            class="w-full border-b-[1.5px] border-gray-800 p-2 text-sm placeholder:text-sm placeholder:font-normal placeholder:text-gray-400 focus:outline-none  focus:border-black focus:ring-0"
+                            formControlName="password" placeholder="Enter Password">
+                        @if ( loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+                        @if (loginForm.get('password')?.hasError('required')) {
+                        <div class="text-sm text-red-600">Password is required</div>
+                        } @else if (loginForm.get('password')?.hasError('minlength')) {
+                        <div class="text-sm text-red-600">Invalid password length</div>
+                        }
+                        }
+                        <span class="absolute right-2 top-7 text-gray-600">
+                            <mat-icon>
+                                key
+                            </mat-icon>
+                        </span>
+                    </div>
+
+                    <div class=" flex justify-end">
+                        <p
+                            class="text-sm cursor-pointer hover:underline hover:underline-offset-4 hover:text-yellow-700">
+                            Forgot Password</p>
+                    </div>
+
+                    <div class="mt-4">
+                        <button type="submit"
+                            [ngClass]="{'cursor-not-allowed !bg-gray-600': loginForm.invalid, 'cursor-pointer': loginForm.valid }"
+                            class="bg-black px-4 py-2 !rounded-md w-full">
+                            <div class="flex flex-row items-center justify-center gap-2 text-white">
+                                Login
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,271 @@
+<div class="bg-[#f2f2f2] h-full pt-16 pb-6  flex flex-col gap-2 px-6 ">
+    <div class="md:flex block  items-end justify-between">
+        <div class="text-gray-900 font-medium text-md">Customer Account Search</div>
+        <div class="flex items-center gap-2 md:mt-0 mt-2 ">
+            <p class="text-gray-900 font-normal text-xs cursor-pointer">
+                Home /
+            </p>
+            <p class="text-gray-500 font-normal text-xs">
+                Customer Account Search
+            </p>
+        </div>
+    </div>
+    <!-- <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-6">
+        @for (item of statusList; track $index) {
+        <div [ngClass]="{ '!bg-[#8757E3] !text-white ' : item.percentageType ==='high' }"
+            class=" bg-white rounded-lg p-3 shadow-lg text-gray-900 ">
+            <div class="font-normal text-xs">{{item.statusName}}</div>
+            <div class="flex items-center justify-between pt-3">
+                <div class="text-3xl font-medium ">{{item.statusCount}}</div>
+                <div [ngClass]="{
+                       'bg-green-100 text-green-800 border-green-500': item.status === 'Completed',
+                       ' bg-red-200  text-red-800': item.status === 'Rejected',
+                        ' bg-orange-200  text-orange-700': item.status === 'Pending',
+                        ' bg-blue-400  text-blue-800': item.status === 'In-Progress',
+                        ' bg-gray-400  text-gray-800': item.status === 'Expired' 
+                    }" class="px-4 py-[3px] text-[10px] font-medium flex items-center rounded-full uppercase ">
+                    {{item.status}}
+                </div>
+                @if (item.percentageType==='high') {
+                <div class="bg-white rounded-full px-3 py-[3px] text-red-800 text-xs font-medium">
+                    10%
+                </div>
+                }
+            </div>
+        </div>
+        }
+    </div> -->
+    <div class=" bg-white rounded-t-md px-4 pb-4 shadow-xs ">
+        <form>
+            <div class="grid xl:grid-cols-4 md:grid-cols-2 gap-4 mt-4 ">
+                <!-- Customer/Child NRIC -->
+                <mat-form-field class=" text-sm" appearance="outline" subscriptSizing="dynamic">
+                    <mat-label class="text-sm ">Customer/Child NRIC</mat-label>
+                    <input type="text" matInput class="text-sm placeholder:text-sm placeholder:text-gray-400" placeholder="Full Number">
+                </mat-form-field>
+                <!-- Order Number -->
+                <mat-form-field class="text-sm" appearance="outline" subscriptSizing="dynamic">
+                    <mat-label class="!text-sm">Order Number</mat-label>
+                    <input type="text" matInput  class="text-sm placeholder:text-sm placeholder:text-gray-400" placeholder="Full Number">
+                </mat-form-field>
+                <!-- Yes_ID -->
+                <mat-form-field class=" text-sm " appearance="outline" subscriptSizing="dynamic">
+                    <mat-label class="text-sm ">Yes ID</mat-label>
+                    <input type="text" matInput class="text-sm placeholder:text-sm placeholder:text-gray-400" placeholder="Yes Id end with @yes.my">
+                </mat-form-field>
+
+                @if (showMoreStatus) {
+                <!-- Sim_Serial_Number -->
+                <mat-form-field class=" text-sm " appearance="outline" subscriptSizing="dynamic">
+                    <mat-label class="text-sm ">Sim Serial Number</mat-label>
+                    <input type="text" matInput class="text-sm placeholder:text-sm placeholder:text-gray-400" placeholder="Full Number">
+                </mat-form-field>
+                <!-- Email_Address -->
+                <mat-form-field class="example-full-width custom-label text-sm " appearance="outline"
+                    subscriptSizing="dynamic">
+                    <mat-label class="text-sm ">Email Address</mat-label>
+                    <input type="email" matInput class="text-sm placeholder:text-sm placeholder:text-gray-400" placeholder="ex: john@abc.com">
+                </mat-form-field>
+                <!-- Contact Number -->
+                <mat-form-field class="example-full-width custom-label text-sm " appearance="outline"
+                    subscriptSizing="dynamic">
+                    <mat-label class="text-sm ">Contanct Number</mat-label>
+                    <input type="tel" matInput class="text-sm placeholder:text-sm placeholder:text-gray-400" placeholder="Contact Number">
+                </mat-form-field>
+                <!-- PO Number -->
+                <mat-form-field class="example-full-width custom-label text-sm " appearance="outline"
+                    subscriptSizing="dynamic">
+                    <mat-label class="text-sm ">PO Number</mat-label>
+                    <input type="email" matInput class="text-sm placeholder:text-sm placeholder:text-gray-400" placeholder="Full Number">
+                </mat-form-field>
+                <!-- Ticket Status -->
+                <mat-form-field class="!bg-white w-full !text-xs" appearance="outline" subscriptSizing="dynamic">
+                    <mat-label class="!text-sm">Ticket Status</mat-label>
+                    <mat-select class="topunit !text-sm ">
+                        @for (ticketStatus of ticketStatusList(); track ticketStatus) {
+                        <mat-option [value]="ticketStatus.status"
+                            class="!text-sm ">{{ticketStatus.status}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+                <!-- YOS Status -->
+                <mat-form-field class="!bg-white w-full !text-xs" appearance="outline" subscriptSizing="dynamic">
+                    <mat-label class="!text-sm">YOS Status</mat-label>
+                    <mat-select class="topunit !text-sm ">
+                        @for (yosStatus of yosStatusList(); track yosStatus) {
+                        <mat-option [value]="yosStatus.status"
+                            class="!text-sm  ">{{yosStatus.status}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+                <!-- Shopee ID -->
+                <mat-form-field class="example-full-width custom-label text-sm " appearance="outline"
+                    subscriptSizing="dynamic">
+                    <mat-label class="text-sm ">Shopee ID</mat-label>
+                    <input type="email" matInput class="text-sm placeholder:text-sm placeholder:text-gray-400" placeholder="Full Number">
+                </mat-form-field>
+                }
+                <div class="flex items-center justify-start">
+                    <button type="submit"
+                        class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-white rounded-lg text-xs m-1 cursor-pointer active:border-purple-600 active:shadow-none  bg-gradient-to-tr from-[#7231F1] to-[#8757E3] ">
+                        <span
+                            class="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-lg group-hover:w-full group-hover:h-10  opacity-10"></span>
+                        <mat-icon class="text-lg pr-2">
+                            search
+                        </mat-icon>
+                        <div class="relative">Search</div>
+                    </button>
+                    <button type="button"
+                        class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-gray-800 rounded-lg text-xs m-1 cursor-pointer  active:shadow-none  bg-gray-200 border-gray-300 border-[1px]">
+                        <span
+                            class="absolute w-0 h-0 transition-all duration-300 ease-out bg-gray-400 rounded-lg group-hover:w-full group-hover:h-10 opacity-10"></span>
+                        <mat-icon class="text-sm pr-2 pt-[1px] text-gray-800">
+                            not_interested
+                        </mat-icon>
+                        <div class="relative">Cancel</div>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="flex items-center gap-2 justify-end mt-2">
+            <!-- <div class="flex items-center gap-2">
+                <div><img src="yos_back/filter_icon.svg" alt=""></div>
+                <div class="text-xs text-gray-900 font-medium">Filters</div>
+            </div> -->
+            <div class="flex items-center right-0 text-underline-offset-4 hover:underline hover:underline-offset-4" (click)="ToggleMoreStatus()">
+                @if (showMoreStatus) {
+                <div class="text-xs  text-pink-600 font-medium  cursor-pointer ">
+                    Less Filters
+                </div>
+                <mat-icon class="text-xl text-pink-600 cursor-pointer -mt-1">
+                    arrow_drop_up
+                </mat-icon>
+                }@else {
+                <div class="text-xs text-pink-600 font-medium cursor-pointer">
+                    More Filters
+                </div>
+                <mat-icon class="text-xl text-pink-600 cursor-pointer -mt-1">
+                    arrow_drop_down
+                </mat-icon>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-b-md px-4 py-2 shadow-lg ">
+        <div class="md:flex block items-center justify-end mt-2">
+            <!-- <div class="relative w-full max-w-xs">
+                <mat-icon class="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400">
+                    search
+                </mat-icon>
+                <input type="text" placeholder="Search"
+                    class="pl-8 pr-4 py-2 w-full text-sm text-gray-800 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" />
+            </div> -->
+            <div class="flex items-center gap-2 md:mt-0 mt-2">
+                <button type="button" (click)="infoDailog()"
+                    class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-gray-800 rounded-lg text-xs m-1 cursor-pointer  active:shadow-none  bg-gray-200 border-gray-300 border-[1px]">
+                    <span
+                        class="absolute w-0 h-0 transition-all duration-300 ease-out bg-gray-400 rounded-lg group-hover:w-full group-hover:h-10 opacity-10"></span>
+                    <mat-icon class="text-sm pr-2 pt-[1px] text-gray-800">
+                        info
+                    </mat-icon>
+                    <div class="relative">Prefix Info</div>
+                </button>
+                <button type="button"
+                    class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-gray-800 rounded-lg text-xs m-1 cursor-pointer  active:shadow-none  bg-gray-200 border-gray-300 border-[1px]">
+                    <span
+                        class="absolute w-0 h-0 transition-all duration-300 ease-out bg-gray-400 rounded-lg group-hover:w-full group-hover:h-10 opacity-10"></span>
+                    <mat-icon class="text-sm pr-2 pt-[1px] text-gray-800">
+                        file_upload
+                    </mat-icon>
+                    <div class="relative">Export</div>
+                </button>
+            </div>
+
+        </div>
+        <div class=" overflow-x-auto  mt-4 ">
+            <table mat-table [dataSource]="dataSource" class="table-auto">
+                <!-- NRIC Column -->
+                <ng-container matColumnDef="NRIC">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit text-gray-950" >NRIC</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs  text-violet-800 cursor-pointer font-medium hover:underline hover:underline-offset-4" (click)="elevateView()">
+                        {{element.NRIC}} </td>
+                </ng-container>
+                <!-- Mobile Column -->
+                <ng-container matColumnDef="Mobile">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fittext-gray-950 "> Mobile </th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs text-gray-950 "> {{element.Mobile}} </td>
+                </ng-container>
+
+                <!-- OrderNumber Column -->
+                <ng-container matColumnDef="OrderNumber">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fittext-gray-950 ">Order Number</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs  text-violet-800 cursor-pointer font-medium hover:underline hover:underline-offset-4" (click)="orderView(element)"> {{element.OrderNumber}} </td>
+                </ng-container>
+                  <!-- IMEI Column -->
+                  <ng-container matColumnDef="IMEI">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fittext-gray-950 "> IMEI</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs text-gray-950 "> {{element.IMEI}} </td>
+                </ng-container>
+                <!-- RMA Column -->
+                <ng-container matColumnDef="RMA">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fittext-gray-950 "> RMA</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs text-gray-950 overflow-hidden text-ellipsis whitespace-nowrap"> {{element.RMA}} </td>
+                </ng-container>
+                <!-- OrderDate Column -->
+                <ng-container matColumnDef="OrderDate">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit text-gray-950"> Order Date</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs text-gray-950 overflow-hidden text-ellipsis whitespace-nowrap"> {{element.OrderDate}} </td>
+                </ng-container>
+                 <!-- ShoppeId Column -->
+                 <ng-container matColumnDef="ShoppeId">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit text-gray-950"> Shoppe Id</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs text-gray-950"> {{element.ShoppeId}} </td>
+                </ng-container>
+                 <!-- ProcessStatus Column -->
+                 <ng-container matColumnDef="ProcessStatus">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit text-gray-950"> Process Status</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs text-gray-950"> {{element.ProcessStatus}} </td>
+                </ng-container>
+                <!-- TicketStatus Column -->
+                <ng-container matColumnDef="TicketStatus">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit text-gray-950"> Ticket Status Status</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white overflow-hidden text-gray-950 text-ellipsis whitespace-nowrap">
+                        <div [ngClass]="{
+                          'bg-[#BBF7D0] text-green-800 ': element.TicketStatus?.toLowerCase() === 'new',
+                          'bg-red-100 text-red-800 ': element.TicketStatus?.toLowerCase() === 'address check failed',
+                          'bg-[#FFDFC0] text-yellow-800 ': element.TicketStatus?.toLowerCase() === 'auto verified',
+                          'bg-blue-200 text-blue-800 ': element.TicketStatus?.toLowerCase() === 'refund',
+                          'bg-teal-100 text-teal-800': element.TicketStatus?.toLowerCase() === 'completed',
+                          'bg-violet-100 text-violet-950': element.TicketStatus?.toLowerCase() === 'info mismatched',
+                          'bg-orange-100 text-orange-800': element.TicketStatus?.toLowerCase() === 'closed',
+                          'bg-cyan-100 text-cyan-800': element.TicketStatus?.toLowerCase() === 'auto cancellation',
+                          'bg-amber-100 text-amber-800': element.TicketStatus?.toLowerCase() === 'activated',
+                          'bg-emerald-100 text-emerald-800': element.TicketStatus?.toLowerCase() === 'backend account creation',
+                          'bg-indigo-100 text-indigo-800': element.TicketStatus?.toLowerCase() === 'undelivered canceled',
+                          'bg-rose-100 text-rose-800': element.TicketStatus?.toLowerCase() === 'pending fraud analysis',
+                          'bg-pink-100 text-pink-800': element.TicketStatus?.toLowerCase() === 'canceled fraud order',
+                          'bg-gray-100 text-gray-800': element.TicketStatus?.toLowerCase() === 'duplicate order',
+                          'bg-slate-100 text-slate-800': element.TicketStatus?.toLowerCase() === 'testing team order',
+                          'bg-purple-100 text-purple-800': element.TicketStatus?.toLowerCase() === 'pre orders',   
+                          'bg-sky-50 text-sky-700': element.TicketStatus?.toLowerCase() === 'pending',
+                          'bg-yellow-100 text-yellow-800': element.TicketStatus?.toLowerCase() === 'in-progress',
+                          'bg-blue-100 text-gray-800': element.TicketStatus?.toLowerCase() === 'lfh uni review'
+                        }"
+                            class="px-3 py-1 w-fit !text-[10px] font-medium uppercase flex items-center  rounded-full  justify-center">
+                            {{element.TicketStatus}}
+                        </div>
+                    </td>
+                </ng-container>
+           
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+        <mat-paginator [length]="dataSource.data.length" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+            aria-label="Select page of periodic elements" class="!bg-white mt-2 w-full flex right-0">
+        </mat-paginator>
+    </div>
+</div>
+
+

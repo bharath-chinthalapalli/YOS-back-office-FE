@@ -1,0 +1,162 @@
+<div class="bg-[#f2f2f2] h-full pt-16 pb-6  flex flex-col gap-2 px-6 ">
+    <div class="md:flex block  items-end justify-between">
+        <div class="text-gray-900 font-medium text-md">Manual Missing Order Sync</div>
+        <div class="flex items-center gap-2 md:mt-0 mt-2 ">
+            <p class="text-gray-900 font-normal text-xs cursor-pointer">
+                Home /
+            </p>
+            <p class="text-gray-500 font-normal text-xs">
+                Manual Missing Order Sync
+            </p>
+        </div>
+    </div>
+    <div class="bg-white rounded-t-md px-4 py-4 shadow-xs">
+        <form>
+            <div class="grid xl:grid-cols-4 md:grid-cols-2 gap-4">
+                <!-- search list Order Id -->
+                <div class="grid col-span-4">
+                    <div class="text-xs text-red-600 flex justify-end mb-2 ">
+                        (Note: Maximum of 50 Order Id's can be searched )
+                    </div>
+                    <mat-form-field class="example-full-width" appearance="outline" subscriptSizing="dynamic" >
+                        <mat-label class="text-sm">Search list Order ID</mat-label>
+                        <textarea matInput></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+            
+            <div class="md:flex block items-center justify-end mt-2">
+                <div class="flex items-center">
+                    <button type="submit"
+                        class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-white rounded-lg text-xs m-1 cursor-pointer active:shadow-none  bg-gradient-to-tr from-[#7231F1] to-[#8757E3] ">
+                        <span
+                            class="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-lg group-hover:w-full group-hover:h-10  opacity-10"></span>
+                        <mat-icon class="text-lg pr-2">
+                            search
+                        </mat-icon>
+                        <div class="relative">Search</div>
+                    </button>
+                    <button type="button"
+                        class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-gray-800 rounded-lg text-xs m-1 cursor-pointer active:shadow-none  bg-gray-200 border-gray-300 border-[1px]">
+                        <span
+                            class="absolute w-0 h-0 transition-all duration-300 ease-out bg-gray-400 rounded-lg group-hover:w-full group-hover:h-10 opacity-10"></span>
+                        <mat-icon class="text-sm pr-2 pt-[1px] text-gray-800">
+                            not_interested
+                        </mat-icon>
+                        <div class="relative">Cancel</div>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="bg-white rounded-b-md px-4 py-2 shadow-lg">
+        <div class="md:flex block items-center justify-end mt-2">
+          
+            <div class="flex items-center gap-2 md:mt-0 mt-2">
+                 <!-- STEP Sync Type -->
+                 <div>
+                    <mat-form-field class="!bg-white w-full !text-xs" appearance="outline" subscriptSizing="dynamic">
+                        <mat-label class="!text-sm">STEP Sync Type</mat-label>
+                        <mat-select class="topunit !text-sm ">
+                            @for (stepSyncType of stepSyncTypeList; track stepSyncType) {
+                            <mat-option [value]="stepSyncType.value"
+                                class="!text-sm  ">{{stepSyncType.viewValue}}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <button type="button"
+                    class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-gray-800 rounded-lg text-xs m-1 cursor-pointer active:shadow-none  bg-gray-200 border-gray-300 border-[1px]">
+                    <span
+                        class="absolute w-0 h-0 transition-all duration-300 ease-out bg-gray-400 rounded-lg group-hover:w-full group-hover:h-10 opacity-10"></span>
+                    <mat-icon class="text-sm pr-2 pt-[1px] text-gray-800">
+                        sync
+                    </mat-icon>
+                    <div class="relative">Sync</div>
+                </button>
+                <button type="button" (click)="navToSyncHistory()"
+                    class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-gray-800 rounded-lg text-xs m-1 cursor-pointer active:shadow-none  bg-gray-200 border-gray-300 border-[1px]">
+                    <span
+                        class="absolute w-0 h-0 transition-all duration-300 ease-out bg-gray-400 rounded-lg group-hover:w-full group-hover:h-10 opacity-10"></span>
+                    <mat-icon class="text-sm pr-2 pt-[1px] text-gray-800">
+                        history
+                    </mat-icon>
+                    <div class="relative">Sync History</div>
+                </button>
+            </div>
+
+        </div>
+        <div class=" overflow-x-auto  mt-4 ">
+            <table mat-table [dataSource]="dataSource" class="table-auto">
+                <!-- SNo Column -->
+                <ng-container matColumnDef="SNo">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit"> S.No. </th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs text-[#8757E3] font-medium">
+                        {{element.SNo}} </td>
+                </ng-container>
+                <!-- OrderId Column -->
+                <ng-container matColumnDef="OrderId">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit"> OrderId </th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs"> {{element.OrderId}} </td>
+                </ng-container>
+
+                <!-- OrderDate Date Column -->
+                <ng-container matColumnDef="OrderDate">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit"> OrderDate</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs"> {{element.OrderDate}} </td>
+                </ng-container>
+                <!-- YESID Column -->
+                <ng-container matColumnDef="YESID">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit"> YESID</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs"> {{element.YESID}} </td>
+                </ng-container>
+                <!-- DoNo Column -->
+                <ng-container matColumnDef="DoNo">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit"> DoNo</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs"> {{element.DoNo}} </td>
+                </ng-container>
+                <!-- YOSStatus Column -->
+                <ng-container matColumnDef="YOSStatus">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit"> YOSStatus</th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white">
+                        <div [ngClass]="{
+                          'bg-[#BBF7D0] text-green-800 ': element.accountStatus === 'Completed',
+                          'bg-red-100 text-red-800 ': element.accountStatus === 'Rejected',
+                          'bg-[#FFDFC0] text-yellow-800 ': element.accountStatus === 'Processing',
+                          'bg-blue-100 text-blue-800 ': element.accountStatus === 'In-Progress',
+                          'bg-gray-100 text-gray-800': element.accountStatus === 'Expired'
+                        }"
+                            class="px-3 py-1 w-fit !text-[10px] font-medium uppercase flex items-center  rounded-full  justify-center">
+                            {{element.accountStatus}}
+                        </div>
+                    </td>
+                </ng-container>
+                <!-- action Column -->
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef class="!bg-gray-50 text-xs !h-fit"> Action </th>
+                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs">
+                        <div (click)="view()">
+                            <mat-icon
+                                class="cursor-pointer text-center text-lg text-gray-500 hover:font-medium hover:text-[#874bf8]">
+                                visibility
+                            </mat-icon>
+                        </div>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <!-- Empty Message Row -->
+                <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell text-center p-10" colspan="7">
+                        <img src="yos_back/empty_records.svg" alt="empty_records" class="m-auto bg-cover bg-center">
+                        <p>No Records</p>
+                    </td>
+                </tr>
+            </table>
+            <mat-paginator [length]="dataSource.data.length" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+                aria-label="Select page of periodic elements" class="!bg-white mt-2 w-full">
+            </mat-paginator>
+        </div>
+    </div>
+</div>

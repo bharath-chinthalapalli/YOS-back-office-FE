@@ -1,0 +1,703 @@
+<div class="bg-[#f2f2f2] min-h-screen pt-16 pb-6  flex flex-col gap-2 xl:gap-3 px-6 ">
+    <div class="md:flex block  items-end justify-between">
+        <div class="flex items-center gap-2">
+            <mat-icon class="cursor-pointer" [routerLink]="['/csa']">
+                keyboard_backspace
+            </mat-icon>
+            <div class="text-gray-900 font-medium text-md ">Reports View</div>
+        </div>
+        <div class="flex items-center gap-2 md:mt-0 mt-2 ">
+            <p class="text-gray-900 font-normal text-xs cursor-pointer">
+                Home /
+            </p>
+            <p class="text-gray-900 font-normal text-xs cursor-pointer">
+                Customer Account Search /
+            </p>
+            <p class="text-gray-500 font-normal text-xs">
+                Reports View
+            </p>
+        </div>
+    </div>
+    <div class="">
+        <!-- <div class="">
+            <mat-chip-listbox class="mat-mdc-chip-set-stacked">
+                <div class="grid xl:grid-cols-5 sm:grid-cols-2 xs:grid-cols-1 gap-4 w-full">
+                    @for (option of reportList; track $index) {
+                    <mat-chip-option class="!border-none" (click)="onChipClick(option.type)"
+                        [selected]="selectedReport === option.type" class="custom-chip">
+                        <div class="flex items-center justify-start gap-1">
+                
+                            <div class="text-sm text-medium ">
+                                {{option.name}}
+                            </div>
+                        </div>
+                    </mat-chip-option>
+                    }
+                </div>
+            </mat-chip-listbox>
+        </div> -->
+        <div class="mt-2 bg-white h-100 shadow-lg rounded-lg  pb-6">
+            <mat-tab-group animationDuration="0ms">
+                <mat-tab label="Order Journey">
+                    <div class="p-4  flex flex-col gap-2">
+                        <div class="md:flex block items-start justify-between">
+                            <div class="text-[#FF0084] font-medium text-lg">Order Journey</div>
+                            <button type="button" (click)="navToStatusChangeHistory()"
+                                class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-gray-800 rounded-lg text-xs m-1 cursor-pointer active:shadow-none  bg-gray-200 border-gray-300 border-[1px]">
+                                <span
+                                    class="absolute w-0 h-0 transition-all duration-300 ease-out bg-gray-400 rounded-lg group-hover:w-full group-hover:h-10 opacity-10"></span>
+                                <mat-icon class="text-sm pr-2 pt-[1px] text-gray-800">
+                                    sync
+                                </mat-icon>
+                                <div class="relative">Status Change History</div>
+                            </button>
+                        </div>
+                        <div class="py-2 pl-4">
+                            <div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="bg-green-600  border-green-600 w-8 h-8 flex items-center justify-center rounded-full">
+                                        <mat-icon class="text-white text-base text-center font-bold">done</mat-icon>
+                                    </div>
+                                    <div>
+                                        <div class="text-md font-medium text-gray-800 mb-1">
+                                            Order Placed
+                                        </div>
+                                        <div class="text-xs font-medium text-gray-800 mb-1 ">
+                                            YEUAP2411142000030419
+                                        </div>
+                                        <div class="text-xs font-normal text-gray-500 ">
+                                            2024-11-15, 12:20:56
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-500 h-16 w-[1px] -mt-11 ml-4 "></div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="bg-green-600 border-2 border-green-600 w-8 h-8 flex items-center justify-center rounded-full">
+                                        <mat-icon class="text-white text-base text-center font-bold">done</mat-icon>
+                                    </div>
+                                    <div>
+                                        <div class="text-md font-medium text-gray-800 mb-1">
+                                            Order Status
+                                        </div>
+                                        <div class="text-xs font-medium text-gray-800 mb-1 ">
+                                            Auto-Verified
+                                        </div>
+                                        <div class="text-xs font-normal text-gray-500 ">
+                                            In-Progress
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-500 h-16 w-[1px] -mt-11 ml-4 "></div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="bg-green-600 border-2 border-green-600 w-8 h-8 flex items-center justify-center rounded-full">
+                                        <mat-icon class="text-white text-base text-center font-bold">done</mat-icon>
+                                    </div>
+                                    <div>
+                                        <div class="text-md font-medium text-gray-800 mb-1">
+                                            Order Processed
+                                        </div>
+                                        <div class="text-xs font-medium text-gray-800 mb-1 ">
+                                            Sent to warehouse
+                                        </div>
+                                        <div class="text-xs font-normal text-gray-500 ">
+                                            2024-11-16, 12:30:51
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-500 h-16 w-[1px] -mt-11 ml-4 "></div>
+                                <div class="flex items-start gap-4">
+                                    <div
+                                        class="bg-green-600 border-2 border-green-600 w-8 h-8 flex items-center justify-center rounded-full">
+                                        <mat-icon class="text-white text-base text-center font-bold">done</mat-icon>
+                                    </div>
+                                    <div>
+                                        <div class="text-md font-medium text-gray-800 mb-1">
+                                            Order Shipping Status
+                                        </div>
+                                        <div class="text-xs font-medium text-gray-800 mb-1 ">
+                                            N/A
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Customer Details Section">
+                    <div class="p-4  flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                            <div class="text-[#FF0084] font-medium text-lg">Customer Details Section</div>
+                            @if(ticketStatus?.toLowerCase()=='address check failed'){
+                                <div class="flex flex-col gap-1 py-1">
+                                    <button type="button"  (click)="navToEdit()"
+                                    class=" relative  inline-flex group w-fit items-center justify-center px-4 py-1.5 text-white rounded-lg text-xs m-1 cursor-pointer  active:shadow-none  bg-gradient-to-tr from-[#7231F1] to-[#8757E3] ">
+                                    <span
+                                        class="absolute w-0 h-0 transition-all cursor-pointer duration-300 ease-out bg-white rounded-lg group-hover:w-full group-hover:h-10  opacity-10"></span>
+                                    <mat-icon class="text-sm pr-2 pt-[1px] text-white">
+                                        edit
+                                    </mat-icon>
+                                    <div class="relative">Edit</div>
+                                </button>
+                                </div>
+                                }
+                        </div>
+                        <div class="grid lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-2 py-2">
+                            @for (item of customerDetailsSectionList(); track $index) {
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">{{item.labelName}} &nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">{{item.details}}</div>
+                            </div>
+                            }
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Remarks&nbsp;:</div>
+                                <div class=" text-xs font-medium   px-4 py-1 rounded-full w-fit uppercase" [ngClass]="{
+                                        'bg-[#BBF7D0] text-green-800 ': ticketStatus?.toLowerCase() === 'new',
+                                        'bg-red-100 text-red-800 ': ticketStatus?.toLowerCase() === 'address check failed',
+                                        'bg-[#FFDFC0] text-yellow-800 ': ticketStatus?.toLowerCase() === 'auto verified',
+                                        'bg-blue-200 text-blue-800 ': ticketStatus?.toLowerCase() === 'refund',
+                                        'bg-teal-100 text-teal-800': ticketStatus?.toLowerCase() === 'completed',
+                                        'bg-violet-100 text-violet-950': ticketStatus?.toLowerCase() === 'info mismatched',
+                                        'bg-orange-100 text-orange-800': ticketStatus?.toLowerCase() === 'closed',
+                                        'bg-cyan-100 text-cyan-800': ticketStatus?.toLowerCase() === 'auto cancellation',
+                                        'bg-amber-100 text-amber-800': ticketStatus?.toLowerCase() === 'activated',
+                                        'bg-emerald-100 text-emerald-800': ticketStatus?.toLowerCase() === 'backend account creation',
+                                        'bg-indigo-100 text-indigo-800': ticketStatus?.toLowerCase() === 'undelivered canceled',
+                                        'bg-rose-100 text-rose-800': ticketStatus?.toLowerCase() === 'pending fraud analysis',
+                                        'bg-pink-100 text-pink-800': ticketStatus?.toLowerCase() === 'canceled fraud order',
+                                        'bg-gray-100 text-gray-800': ticketStatus?.toLowerCase() === 'duplicate order',
+                                        'bg-slate-100 text-slate-800': ticketStatus?.toLowerCase() === 'testing team order',
+                                        'bg-purple-100 text-purple-800': ticketStatus?.toLowerCase() === 'pre orders',   
+                                        'bg-sky-50 text-sky-700': ticketStatus?.toLowerCase() === 'pending',
+                                        'bg-yellow-100 text-yellow-800': ticketStatus?.toLowerCase() === 'in-progress',
+                                        'bg-blue-100 text-gray-800': ticketStatus?.toLowerCase() === 'lfh uni review'
+                                      }">
+                                    {{ticketStatus}}
+                                </div>
+                            </div>
+
+                            @if(ticketStatus?.toLowerCase()=='auto verified'){
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Is ESIM&nbsp;:</div>
+                                <div class="flex items-center gap-2">
+                                    <div>
+                                        <p class="text-gray-900 text-sm font-medium ">YES</p>
+                                    </div>
+                                    <div>
+
+                                        <button type="button"
+                                            class=" !w-fit relative inline-flex group items-center justify-center px-4 py-1.5 text-gray-800 rounded-lg text-xs m-1 cursor-pointer  active:shadow-none  bg-gray-200 border-gray-300 border-[1px]">
+                                            <span
+                                                class="absolute w-0 h-0 transition-all duration-300 ease-out bg-gray-400 rounded-lg group-hover:w-full group-hover:h-10 opacity-10"></span>
+                                            <mat-icon class="text-sm pr-2 pt-[1px] text-gray-800">
+                                                sync
+                                            </mat-icon>
+                                            <div class="relative text-nowrap">Non Elevate eSIM Bar Code(Resend)</div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            }@else {
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Is ESIM&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">NO</div>
+                            </div>
+                            }
+                        
+
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Order Details Section">
+                    <div class="p-4  flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                            <div class="text-[#FF0084] font-medium text-lg">Order Details Section</div>
+                        </div>
+                        <div class="grid lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-2 py-2">
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Ticket Status&nbsp;:</div>
+                                <div class=" text-xs font-medium   px-4 py-1 rounded-full w-fit uppercase" [ngClass]="{
+                                    'bg-[#BBF7D0] text-green-800 ': ticketStatus?.toLowerCase() === 'new',
+                                    'bg-red-100 text-red-800 ': ticketStatus?.toLowerCase() === 'address check failed',
+                                    'bg-[#FFDFC0] text-yellow-800 ': ticketStatus?.toLowerCase() === 'auto verified',
+                                    'bg-blue-200 text-blue-800 ': ticketStatus?.toLowerCase() === 'refund',
+                                    'bg-teal-100 text-teal-800': ticketStatus?.toLowerCase() === 'completed',
+                                    'bg-violet-100 text-violet-950': ticketStatus?.toLowerCase() === 'info mismatched',
+                                    'bg-orange-100 text-orange-800': ticketStatus?.toLowerCase() === 'closed',
+                                    'bg-cyan-100 text-cyan-800': ticketStatus?.toLowerCase() === 'auto cancellation',
+                                    'bg-amber-100 text-amber-800': ticketStatus?.toLowerCase() === 'activated',
+                                    'bg-emerald-100 text-emerald-800': ticketStatus?.toLowerCase() === 'backend account creation',
+                                    'bg-indigo-100 text-indigo-800': ticketStatus?.toLowerCase() === 'undelivered canceled',
+                                    'bg-rose-100 text-rose-800': ticketStatus?.toLowerCase() === 'pending fraud analysis',
+                                    'bg-pink-100 text-pink-800': ticketStatus?.toLowerCase() === 'canceled fraud order',
+                                    'bg-gray-100 text-gray-800': ticketStatus?.toLowerCase() === 'duplicate order',
+                                    'bg-slate-100 text-slate-800': ticketStatus?.toLowerCase() === 'testing team order',
+                                    'bg-purple-100 text-purple-800': ticketStatus?.toLowerCase() === 'pre orders',   
+                                    'bg-sky-50 text-sky-700': ticketStatus?.toLowerCase() === 'pending',
+                                    'bg-yellow-100 text-yellow-800': ticketStatus?.toLowerCase() === 'in-progress',
+                                    'bg-blue-100 text-gray-800': ticketStatus?.toLowerCase() === 'lfh uni review'
+                                  }">
+                                    {{ticketStatus}}
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">YOS Status&nbsp;:</div>
+                                <div
+                                    class="text-white text-xs font-medium  bg-green-400 px-4 py-1 rounded-full w-fit uppercase">
+                                    In-Progress</div>
+                            </div>
+
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Order Number&nbsp;:</div>
+                                <div
+                                    class="text-white text-xs font-medium  bg-green-400 px-4 py-1 rounded-full w-fit uppercase">
+                                    YEUAP2411212000030485</div>
+                            </div>
+
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Order Date & Time&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">2024-11-25 17:49:41</div>
+                            </div>
+
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Plan Name&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">Yes Infinite Plus Basic U 24M</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Yes Number&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">DC Longitude&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">101.6840589</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">DC Latitude&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">3.1319197</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">DC Google Maps&nbsp;:</div>
+                                <div class="flex items-center gap-1" (click)="navToMaps()">
+                                    <mat-icon class="text-purple-600 text-lg">
+                                        location_on
+                                    </mat-icon>
+                                    <p
+                                        class="text-purple-600 text-sm font-medium mt-1 hover:underline ring-offset-1 cursor-pointer">
+                                        Click Here</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Google API Check Flag&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">P</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Purchased Items&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">No Device Detail Found</div>
+                            </div>
+                            @if (ticketStatus == 'auto verified') {
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Contract PDF&nbsp;:</div>
+                                <div
+                                    class="text-white text-xs font-medium  bg-gray-400 px-4 py-1 rounded-full w-fit uppercase">
+                                    Contract PDF not generated</div>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="SCM Details">
+                    <div class="p-4  flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                            <div class="text-[#FF0084] font-medium text-lg">SCM Details</div>
+                        </div>
+                        <div class="grid lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-2 py-2">
+
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Auto DO Status&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">New</div>
+                            </div>
+
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Courier Name&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">PO Number&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Courier Consignment Number&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">101.6840589</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">SAP PO Number&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">3.1319197</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Warranty Date start from&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">3.1319197</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">DO Status&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Shipment Status&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Do Status&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Shipment Delivery Date&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">DO Delivery Date&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Delivery Contact Name&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">PO Remarks&nbsp;:</div>
+                                @if(!isShowPoRemarks()){
+                                <p (click)="poRemarks()"
+                                    class="text-purple-600 text-sm font-medium hover:underline ring-offset-1 cursor-pointer">
+                                    Click Here
+                                </p>
+                                }
+                                @if(isShowPoRemarks()){
+                                <p class="text-green-600 text-sm font-medium ">MSG0001 - Purchase order created
+                                    successfully!</p>
+                                }
+                            </div>
+                            <div class="flex flex-col gap-1 py-1">
+                                <div class="text-gray-600 text-xs font-normal ">Delivery Contact Number&nbsp;:</div>
+                                <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Courier Status Details">
+                    @if (ticketStatus == 'auto verified') {
+                    <div class="p-4  flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                            <div class="text-[#FF0084] font-medium text-lg">Courier Status Details</div>
+                        </div>
+                        <div class="flex flex-col items-center ">
+                            <div class="mt-14">
+                                <img src="yos_back/empty_records.svg" alt="" class="w-24">
+                            </div>
+                            <div class="text-md text-gray-800 font-medium pt-1">No Courier Status</div>
+                        </div>
+                    </div>
+                    }
+                    @else {
+                    <div class="p-4  flex flex-col gap-2">
+                        <div class="flex items-center justify-between">
+                            <div class="text-[#FF0084] font-medium text-lg">Courier Status Details</div>
+                        </div>
+                        <div class=" overflow-x-auto px-4 py-2  mt-4 ">
+                            <table mat-table [dataSource]="dataSource" class="table-auto">
+                                <!-- Id Column -->
+                                <ng-container matColumnDef="Id">
+                                    <th mat-header-cell *matHeaderCellDef
+                                        class="!bg-gray-50 text-xs !h-fit text-gray-950">
+                                        Id</th>
+                                    <td mat-cell *matCellDef="let element" class="!bg-white text-xstext-gray-950 ">
+                                        {{element.Id}} </td>
+                                </ng-container>
+                                <!-- courierCompany Column -->
+                                <ng-container matColumnDef="courierCompany">
+                                    <th mat-header-cell *matHeaderCellDef
+                                        class="!bg-gray-50 text-xs !h-fittext-gray-950 ">
+                                        Courier Company </th>
+                                    <td mat-cell *matCellDef="let element" class="!bg-white text-xstext-gray-950 ">
+                                        {{element.courierCompany}} </td>
+                                </ng-container>
+
+                                <!-- shipmentStatus Column -->
+                                <ng-container matColumnDef="shipmentStatus">
+                                    <th mat-header-cell *matHeaderCellDef
+                                        class="!bg-gray-50 text-xs !h-fittext-gray-950 ">
+                                        Shipment Status</th>
+                                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs text-gray-950">
+                                        <div
+                                            class="text-white text-xs font-medium  bg-gray-400 px-4 py-1 rounded-full w-fit uppercase">
+                                            {{element.shipmentStatus}}
+                                        </div>
+                                    </td>
+                                </ng-container>
+
+                                <!-- shipmentDate Column -->
+                                <ng-container matColumnDef="shipmentDate">
+                                    <th mat-header-cell *matHeaderCellDef
+                                        class="!bg-gray-50 text-xs !h-fit text-gray-950 ">
+                                        Shipment Date</th>
+                                    <td mat-cell *matCellDef="let element" class="!bg-white text-xs text-gray-950">
+                                        {{element.shipmentDate}} </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </table>
+                        </div>
+                    </div>
+                    }
+                </mat-tab>
+            </mat-tab-group>
+
+        </div>
+    </div>
+    <!-- <div class="mt-2 bg-white h-100 shadow-lg rounded-lg  pb-6">
+        @if (selectedReport === 'order_details') {
+        <div class="p-4">
+            <div class="md:flex block items-start justify-between">
+                <div class="text-[#FF0084] font-medium text-lg">Order Journey</div>
+                <button type="button" (click)="navToStatusChangeHistory()"
+                    class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-gray-800 rounded-lg text-xs m-1 cursor-pointer active:border-purple-600 active:shadow-none  bg-gray-200 border-gray-300 border-[1px]">
+                    <span
+                        class="absolute w-0 h-0 transition-all duration-300 ease-out bg-gray-400 rounded-lg group-hover:w-full group-hover:h-10 opacity-10"></span>
+                    <mat-icon class="text-sm pr-2 pt-[1px] text-gray-800">
+                        sync
+                    </mat-icon>
+                    <div class="relative">Status Change History</div>
+                </button>
+            </div>
+            <div class="py-2 pl-4">
+                <div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="bg-green-600  border-green-600 w-8 h-8 flex items-center justify-center rounded-full">
+                            <mat-icon class="text-white text-base text-center font-bold">done</mat-icon>
+                        </div>
+                        <div>
+                            <div class="text-md font-medium text-gray-800 mb-1">
+                                Order Placed
+                            </div>
+                            <div class="text-xs font-medium text-gray-800 mb-1 ">
+                                YEUAP2411142000030419
+                            </div>
+                            <div class="text-xs font-normal text-gray-500 ">
+                                2024-11-15, 12:20:56
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-500 h-16 w-[1px] -mt-11 ml-4 "></div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="bg-green-600 border-2 border-green-600 w-8 h-8 flex items-center justify-center rounded-full">
+                            <mat-icon class="text-white text-base text-center font-bold">done</mat-icon>
+                        </div>
+                        <div>
+                            <div class="text-md font-medium text-gray-800 mb-1">
+                                Order Status
+                            </div>
+                            <div class="text-xs font-medium text-gray-800 mb-1 ">
+                                Auto-Verified
+                            </div>
+                            <div class="text-xs font-normal text-gray-500 ">
+                                In-Progress
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-500 h-16 w-[1px] -mt-11 ml-4 "></div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="bg-green-600 border-2 border-green-600 w-8 h-8 flex items-center justify-center rounded-full">
+                            <mat-icon class="text-white text-base text-center font-bold">done</mat-icon>
+                        </div>
+                        <div>
+                            <div class="text-md font-medium text-gray-800 mb-1">
+                                Order Processed
+                            </div>
+                            <div class="text-xs font-medium text-gray-800 mb-1 ">
+                                Sent to warehouse
+                            </div>
+                            <div class="text-xs font-normal text-gray-500 ">
+                                2024-11-16, 12:30:51
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-500 h-16 w-[1px] -mt-11 ml-4 "></div>
+                    <div class="flex items-start gap-4">
+                        <div
+                            class="bg-green-600 border-2 border-green-600 w-8 h-8 flex items-center justify-center rounded-full">
+                            <mat-icon class="text-white text-base text-center font-bold">done</mat-icon>
+                        </div>
+                        <div>
+                            <div class="text-md font-medium text-gray-800 mb-1">
+                                Order Shipping Status
+                            </div>
+                            <div class="text-xs font-medium text-gray-800 mb-1 ">
+                                N/A
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+        @if(selectedReport === 'customer_details_section'){
+        <div class="p-4">
+            <div class="flex items-center justify-between">
+                <div class="text-[#FF0084] font-medium text-lg">Customer Details</div>
+            </div>
+            <div class="grid lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-2 py-2">
+                @for (item of customerDetailsSectionList; track $index) {
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">{{item.labelName}}:</div>
+                    <div class="text-gray-900 text-sm font-medium ">{{item.details}}</div>
+                </div>
+                }
+            </div>
+        </div>
+        }
+        @if(selectedReport === 'order_details_section'){
+        <div class="p-4">
+            <div class="flex items-center justify-between">
+                <div class="text-gray-900 font-medium text-lg">Order Details</div>
+            </div>
+            <div class="grid lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-2 py-2">
+
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Ticket Status:</div>
+                    <div class="text-white text-xs font-medium  bg-red-400 px-4 py-1 rounded-full w-fit">
+                        Pending Fraud Analysis</div>
+                </div>
+
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">YOS Status:</div>
+                    <div class="text-white text-xs font-medium  bg-green-400 px-4 py-1 rounded-full w-fit">
+                        In-Progress</div>
+                </div>
+
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Order Number:</div>
+                    <div class="text-white text-xs font-medium  bg-green-400 px-4 py-1 rounded-full w-fit">
+                        YEUAP2411212000030485</div>
+                </div>
+
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Order Date & Time:</div>
+                    <div class="text-gray-900 text-sm font-medium ">2024-11-25 17:49:41</div>
+                </div>
+
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Plan Name:</div>
+                    <div class="text-gray-900 text-sm font-medium ">Yes Infinite Plus Basic U 24M</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Yes Number:</div>
+                    <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">DC Longitude:</div>
+                    <div class="text-gray-900 text-sm font-medium ">101.6840589</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">DC Latitude:</div>
+                    <div class="text-gray-900 text-sm font-medium ">3.1319197</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">DC Google Maps:</div>
+                    <p class="text-purple-600 text-sm font-medium hover:underline ring-offset-1 cursor-pointer">
+                        Click Here</p>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Google API Check Flag:</div>
+                    <div class="text-gray-900 text-sm font-medium ">P</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Purchased Items:</div>
+                    <div class="text-gray-900 text-sm font-medium ">No Device Detail Found</div>
+                </div>
+            </div>
+        </div>
+        }
+        @if(selectedReport === 'scm_details'){
+        <div class="p-4">
+            <div class="flex items-center justify-between">
+                <div class="text-gray-900 font-medium text-lg">Delivery Details(SCM)</div>
+            </div>
+            <div class="grid lg:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-2 py-2">
+
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Auto DO Status:</div>
+                    <div class="text-gray-900 text-sm font-medium ">New</div>
+                </div>
+
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Courier Name:</div>
+                    <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">PO Number:</div>
+                    <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Courier Consignment Number:</div>
+                    <div class="text-gray-900 text-sm font-medium ">101.6840589</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">SAP PO Number:</div>
+                    <div class="text-gray-900 text-sm font-medium ">3.1319197</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Warranty Date start from:</div>
+                    <div class="text-gray-900 text-sm font-medium ">3.1319197</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">DO Status:</div>
+                    <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Shipment Status:</div>
+                    <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Do Status:</div>
+                    <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Shipment Delivery Date:</div>
+                    <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">DO Delivery Date:</div>
+                    <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Delivery Contact Name:</div>
+                    <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">PO Remarks:</div>
+                    <p class="text-purple-600 text-sm font-medium hover:underline ring-offset-1 cursor-pointer">
+                        Click Here</p>
+                </div>
+                <div class="flex flex-col gap-1 py-1">
+                    <div class="text-gray-600 text-xs font-normal ">Delivery Contact Number:</div>
+                    <div class="text-gray-900 text-sm font-medium ">N/A</div>
+                </div>
+            </div>
+        </div>
+        }
+        @if(selectedReport === 'courier_status_details'){
+        <div class="flex flex-col items-center ">
+            <div class="mt-14">
+                <img src="yos_back/empty_records.svg" alt="" class="w-24">
+            </div>
+            <div class="text-md text-gray-800 font-medium pt-1">No Courier Status</div>
+        </div>
+        }
+    </div> -->
+</div>

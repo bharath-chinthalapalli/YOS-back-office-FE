@@ -1,0 +1,193 @@
+<div class="flex justify-between bg-gray-200 px-6 p-2">
+    <div class="text-gray-800 font-medium text-sm">
+        Update Customer Details
+    </div>
+    <mat-icon (click)="closeDialoge()" class="cursor-pointer">
+        close
+    </mat-icon>
+</div>
+<ng-container>
+    <mat-dialog-content>
+        <section class=" my-4 w-full">
+            <!-- <div class="text-gray-800 font-medium text-sm !text-left">
+                Prefix Information
+            </div> -->
+            <form [formGroup]="updateCustomerForm" (ngSubmit)="UpdateData()">
+                <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 xs:grid-cols-1 gap-4">
+                    <!-- new_email -->
+                    <div class="">
+                        <mat-form-field appearance="outline" class="w-full">
+                            <mat-label class="!text-sm">Email</mat-label>
+                            <input type="email" matInput class="text-sm" formControlName="new_email">
+                        </mat-form-field>
+                        <div class="-mt-4">
+                            @if (updateCustomerForm.get('new_email')?.invalid &&
+                            updateCustomerForm.get('new_email')?.touched)
+                            {
+                            @if (updateCustomerForm.get('new_email')?.errors?.['required']) {
+                            <mat-error class="text-red-500 text-xs font-medium">Email is required</mat-error>
+                            }
+                            @if(updateCustomerForm.get('new_email')?.errors?.['pattern']){
+                            <mat-error class="text-red-500 text-xs font-medium">Invalid Email Format</mat-error>
+                            }
+                            }
+                        </div>
+                    </div>
+                    <!-- alternate_mobile_number -->
+                    <div class="">
+                        <mat-form-field appearance="outline" class="w-full">
+                            <mat-label class="!text-sm">Alternate Mobile Number</mat-label>
+                            <input type="email" matInput class="text-sm" formControlName="alternate_mobile_number">
+                        </mat-form-field>
+                        <div class="-mt-4">
+                            @if (updateCustomerForm.get('alternate_mobile_number')?.invalid &&
+                            updateCustomerForm.get('alternate_mobile_number')?.touched)
+                            {
+                            @if (updateCustomerForm.get('alternate_mobile_number')?.errors?.['required']) {
+                            <mat-error class="text-red-500 text-xs font-medium">Alternate Mobile Number is
+                                required</mat-error>
+                            }
+                            @if(updateCustomerForm.get('alternate_mobile_number')?.errors?.['pattern']){
+                            <mat-error class="text-red-500 text-xs font-medium">Invalid Alternate Mobile Number
+                                Format</mat-error>
+                            }
+                            }
+                        </div>
+                    </div>
+                    <!-- contact_number_home -->
+                    <div>
+                        <mat-form-field appearance="outline" class="w-full">
+                            <mat-label class="!text-sm">Contact Number (HOME)</mat-label>
+                            <input type="tel" matInput class="text-sm" formControlName="contact_number_home">
+                        </mat-form-field>
+                        <div class="-mt-4">
+                            @if (updateCustomerForm.get('contact_number_home')?.invalid &&
+                            updateCustomerForm.get('contact_number_home')?.touched)
+                            {
+                            @if (updateCustomerForm.get('contact_number_home')?.errors?.['required']) {
+                            <mat-error class="text-red-500 text-xs font-medium">Contact Number (HOME) is
+                                required</mat-error>
+                            }
+                            @if(updateCustomerForm.get('contact_number_home')?.errors?.['pattern']){
+                            <mat-error class="text-red-500 text-xs font-medium">Invalid Contact Number (HOME)
+                                Format</mat-error>
+                            }
+                            }
+                        </div>
+                    </div>
+                    <!-- contact_number_office -->
+                    <div>
+                        <mat-form-field appearance="outline" class="w-full">
+                            <mat-label class="!text-sm">Contact Number (OFFICE)</mat-label>
+                            <input type="tel" matInput class="text-sm" formControlName="contact_number_office">
+                        </mat-form-field>
+                        <div class="-mt-4">
+                            @if (updateCustomerForm.get('contact_number_office')?.invalid &&
+                            updateCustomerForm.get('contact_number_office')?.touched)
+                            {
+                            @if (updateCustomerForm.get('contact_number_office')?.errors?.['required']) {
+                            <mat-error class="text-red-500 text-xs font-medium">Contact Number (OFFICE) is
+                                required</mat-error>
+                            }
+                            @if(updateCustomerForm.get('contact_number_office')?.errors?.['pattern']){
+                            <mat-error class="text-red-500 text-xs font-medium">Invalid Contact Number (OFFICE)
+                                Format</mat-error>
+                            }
+                            }
+                        </div>
+                    </div>
+                    <div class="grid xl:col-span-4 lg:col-span-3 md:col-span-2 xs:col-span-1">
+                        <h2 class="font-medium text-[#7231F1]">Address as per NRIC :</h2>
+                    </div>
+                    <!-- address_NRIC_street_name -->
+                    <div class="grid xl:col-span-4 lg:col-span-3 md:col-span-2 xs:col-span-1">
+                        <mat-form-field class="example-full-width w-full" appearance="outline"
+                            subscriptSizing="dynamic">
+                            <mat-label class="text-sm">Street Name</mat-label>
+                            <textarea matInput formControlName="address_NRIC_street_name" maxlength="150"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <!-- address_as_per_NRIC_city -->
+                    <div class="">
+                        <mat-form-field appearance="outline" class="w-full">
+                            <mat-label class="!text-sm">City</mat-label>
+                            <input type="text" matInput class="text-sm" formControlName="address_as_per_NRIC_city">
+                        </mat-form-field>
+                    </div>
+                    <!-- address_as_per_NRIC_state -->
+                    <div class="">
+                        <mat-form-field appearance="outline" class="w-full">
+                            <mat-label class="!text-sm">State</mat-label>
+                            <input type="text" matInput class="text-sm" formControlName="address_as_per_NRIC_state">
+                        </mat-form-field>
+                    </div>
+                    <!-- address_as_per_NRIC_postal -->
+                    <div class="">
+                        <mat-form-field appearance="outline" class="w-full">
+                            <mat-label class="!text-sm">Post Code</mat-label>
+                            <input type="text" matInput class="text-sm" formControlName="address_as_per_NRIC_postal">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="grid xl:col-span-4 lg:col-span-3 md:col-span-2 xs:col-span-1">
+                        <h2 class="font-medium text-[#7231F1]">Delivery Address :</h2>
+                    </div>
+                    <!-- delivery_address_street_name -->
+                    <div class="grid xl:col-span-4 lg:col-span-3 md:col-span-2 xs:col-span-1">
+                        <mat-form-field class="example-full-width w-full" appearance="outline"
+                            subscriptSizing="dynamic">
+                            <mat-label class="text-sm">Street Name</mat-label>
+                            <textarea matInput formControlName="delivery_address_street_name"
+                                maxlength="150"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <!-- delivery_address_city -->
+                    <div class="">
+                        <mat-form-field appearance="outline" class="w-full">
+                            <mat-label class="!text-sm">City</mat-label>
+                            <input type="text" matInput class="text-sm" formControlName="delivery_address_city">
+                        </mat-form-field>
+                    </div>
+                    <!-- delivery_address_state -->
+                    <div class="">
+                        <mat-form-field appearance="outline" class="w-full">
+                            <mat-label class="!text-sm">State</mat-label>
+                            <input type="text" matInput class="text-sm" formControlName="delivery_address_state">
+                        </mat-form-field>
+                    </div>
+                    <!-- delivery_address_postal -->
+                    <div class="">
+                        <mat-form-field appearance="outline" class="w-full">
+                            <mat-label class="!text-sm">Post Code</mat-label>
+                            <input type="text" matInput class="text-sm" formControlName="delivery_address_postal">
+                        </mat-form-field>
+                    </div>  
+                </div>
+            </form>
+        </section>
+    </mat-dialog-content>
+    <mat-dialog-actions class="">
+        <div class="flex justify-start !bottom-0 mt-6">
+            <button type="submit" [disabled]="updateCustomerForm.invalid"
+                [ngClass]="updateCustomerForm.invalid ? '!cursor-not-allowed opacity-45 ' : 'cursor-pointer' "
+                class=" relative inline-flex group items-center justify-center px-4 py-1.5 text-white rounded-lg text-xs m-1 cursor-pointer  active:shadow-none  bg-gradient-to-tr from-[#7231F1] to-[#8757E3] ">
+                <span
+                    class="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-lg group-hover:w-full group-hover:h-10  opacity-10"></span>
+                <mat-icon class="text-sm pr-2 pt-[1px] text-white">
+                    update
+                </mat-icon>
+                <div class="relative">Update</div>
+            </button>
+            <button type="button" (click)="closeDialoge()"
+                class=" relative inline-flex group items-center justify-center px-4 h-10 text-gray-800 rounded-lg text-xs m-1 cursor-pointer active:border-gray-600 active:shadow-none  bg-gray-200 border-gray-300 border-[1px]">
+                <span
+                    class="absolute w-0 h-0 transition-all duration-300 ease-out bg-gray-400 rounded-lg group-hover:w-full group-hover:h-10 opacity-10"></span>
+                <mat-icon class="text-lg text-gray-800">
+                    not_interested
+                </mat-icon>
+                <div class="relative mt-1 ml-1">Cancel</div>
+            </button>
+        </div>
+    
+    </mat-dialog-actions>
+</ng-container>

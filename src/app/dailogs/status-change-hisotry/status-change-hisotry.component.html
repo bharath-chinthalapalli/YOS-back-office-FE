@@ -1,0 +1,98 @@
+<div class="flex justify-between bg-gray-200 px-6 p-2">
+    <div class="text-gray-800 font-medium text-sm">
+        Order Status Change History
+    </div>
+    <mat-icon (click)="closeDialoge()" class="cursor-pointer">
+        close
+    </mat-icon>
+</div>
+<ng-container>
+    <mat-dialog-content>
+        <section class="container my-0 w-full flex flex-col text-center gap-1">
+            <!-- <div class="text-gray-800 font-medium text-sm !text-left">
+                Order Status Change History
+            </div> -->
+            <div class=" overflow-x-auto  mt-0 ">
+
+                <table mat-table [dataSource]="dataSource" class="table-auto">
+                    <!-- RequestStatus Column -->
+                    <ng-container matColumnDef="RequestStatus">
+                        <th mat-header-cell *matHeaderCellDef
+                            class="!bg-gray-100 text-xs !h-fit uppercase overflow-hidden text-ellipsis whitespace-nowrap">
+                            Request Status </th>
+                        <td mat-cell *matCellDef="let element" class="!bg-white text-xs text-[#8757E3] font-medium">
+                            {{element.RequestStatus}} </td>
+                    </ng-container>
+                    <!-- OldValue Column -->
+                    <ng-container matColumnDef="OldValue">
+                        <th mat-header-cell *matHeaderCellDef
+                            class="!bg-gray-100 text-xs !h-fit uppercase overflow-hidden text-ellipsis whitespace-nowrap">
+                            Old Value </th>
+                        <td mat-cell *matCellDef="let element" class="!bg-white text-xs"> {{element.OldValue}} </td>
+                    </ng-container>
+
+                    <!-- NewValue Column -->
+                    <ng-container matColumnDef="NewValue">
+                        <th mat-header-cell *matHeaderCellDef
+                            class="!bg-gray-100 text-xs !h-fit uppercase overflow-hidden text-ellipsis whitespace-nowrap">
+                            New Value</th>
+                        <td mat-cell *matCellDef="let element" class="!bg-white text-xs"> {{element.NewValue}} </td>
+                    </ng-container>
+                    <!-- StatusUpdatedBy Column -->
+                    <ng-container matColumnDef="StatusUpdatedBy">
+                        <th mat-header-cell *matHeaderCellDef
+                            class="!bg-gray-100 text-xs !h-fit uppercase overflow-hidden text-ellipsis whitespace-nowrap">
+                            Status Updated By </th>
+                        <td mat-cell *matCellDef="let element" class="!bg-white text-xs"> {{element.StatusUpdatedBy}}
+                        </td>
+                    </ng-container>
+                    <!-- StatusApprovedBy Column -->
+                    <ng-container matColumnDef="StatusApprovedBy">
+                        <th mat-header-cell *matHeaderCellDef
+                            class="!bg-gray-100 text-xs !h-fit uppercase overflow-hidden text-ellipsis whitespace-nowrap">
+                            Status Approved By </th>
+                        <td mat-cell *matCellDef="let element" class="!bg-white text-xs"> {{element.StatusApprovedBy}}
+                        </td>
+                    </ng-container>
+                    <!-- ChangeRequestDate Column -->
+                    <ng-container matColumnDef="ChangeRequestDate">
+                        <th mat-header-cell *matHeaderCellDef
+                            class="!bg-gray-100 text-xs !h-fit uppercase overflow-hidden text-ellipsis whitespace-nowrap">
+                            Change equest Date </th>
+                        <td mat-cell *matCellDef="let element" class="!bg-white text-xs"> {{element.ChangeRequestDate}}
+                        </td>
+                    </ng-container>
+                    <!-- ApprovedRejectedDate Column -->
+                    <ng-container matColumnDef="ApprovedRejectedDate">
+                        <th mat-header-cell *matHeaderCellDef
+                            class="!bg-gray-100 text-xs !h-fit uppercase overflow-hidden text-ellipsis whitespace-nowrap">
+                            Approved/Rejected Date</th>
+                        <td mat-cell *matCellDef="let element" class="!bg-white text-xs">
+                            {{element.ApprovedRejectedDate}} </td>
+                    </ng-container>
+                    <!-- Action Column -->
+                    <ng-container matColumnDef="Action">
+                        <th mat-header-cell *matHeaderCellDef
+                            class="!bg-gray-100 text-xs !h-fit uppercase overflow-hidden text-ellipsis whitespace-nowrap">
+                            Action</th>
+                        <td mat-cell *matCellDef="let element" class="!bg-white text-xs"> {{element.Action}} </td>
+                    </ng-container>
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    <!-- Empty Message Row -->
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell text-center p-10" colspan="12">
+                            <img src="yos_back/empty_records.svg" alt="empty_records" class="m-auto bg-cover bg-center">
+                            <p>No Records</p>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </section>
+    </mat-dialog-content>
+</ng-container>
